@@ -85,9 +85,9 @@
             <h1 class="display-4 text-white mb-3 animated slideInDown">Checkout</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center mb-0 animated slideInDown">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Contact Us</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="contact.html">Contact Us</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Checkout</li>
                 </ol>
             </nav>
         </div>
@@ -109,11 +109,25 @@
                         <h3 class="text-lg font-semibold text-gray-900">Zveda Hair Oil</h3>
                         <p class="text-sm text-gray-600">200ml bottle</p>
                         <p class="text-green-600 font-semibold text-lg">₹963 per bottle</p>
-                        <div class="mt-4">
+                        <!-- <div class="mt-4">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
                             <input type="number" id="quantity" min="1" value="1"
                                 class="w-24 border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none" />
-                        </div>
+                        </div> -->
+                        <div class="mt-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
+                            <div class="flex items-center space-x-2">
+                              <button onclick="decreaseQty()" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">−</button>
+                              <input
+                                type="number"
+                                id="quantity"
+                                min="1"
+                                value="1"
+                                class="w-16 text-center border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
+                              />
+                              <button onclick="increaseQty()" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">+</button>
+                            </div>
+                          </div>
                         <p id="totalPrice" class="text-gray-800 mt-2 font-semibold">Total: ₹963</p>
                     </div>
                 </div>
@@ -163,7 +177,7 @@
                             pattern="\d{6}" title="Please enter a 6-digit postal code" required
                             oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);" />
                     </div>
-                    
+
                 </form>
 
                 <!-- Order Button -->
@@ -221,7 +235,7 @@
 
     <script>
         const whatsappNumber = "917338348401";
-    
+
         function sendToWhatsApp() {
             const name = document.getElementById("name").value.trim();
             const phone = document.getElementById("phone").value.trim();
@@ -230,72 +244,95 @@
             const city = document.getElementById("city").value.trim();
             const pincode = document.getElementById("pincode").value.trim();
             const quantity = document.getElementById("quantity").value.trim();
-    
+
             // Basic required fields check
             if (!name || !phone || !email || !address || !city || !pincode || !quantity) {
                 alert("Please fill in all fields before proceeding.");
                 return;
             }
-    
+
             // Phone number validation (Indian format: 10 digits)
             const phoneRegex = /^[6-9]\d{9}$/;
             if (!phoneRegex.test(phone)) {
                 alert("Please enter a valid 10-digit Indian phone number.");
                 return;
             }
-    
+
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert("Please enter a valid email address.");
                 return;
             }
-    
+
             // Address validation (minimum 10 characters)
             if (address.length < 10) {
                 alert("Please enter a complete address with at least 10 characters.");
                 return;
             }
-    
+
             // Pincode validation (6-digit number)
             const pinRegex = /^\d{6}$/;
             if (!pinRegex.test(pincode)) {
                 alert("Please enter a valid 6-digit postal code.");
                 return;
             }
-    
+
             // All good, construct message
             const message = `Hi Zveda Oils, I want to place an order:\n\n🛒 *Product:* Zveda Hair Oil (200ml)\n🔢 *Quantity:* ${quantity}\n\n📦 *Shipping Details:*\n👤 Name: ${name}\n📞 Phone: ${phone}\n✉️ Email: ${email}\n🏠 Address: ${address}, ${city} - ${pincode}\n\nPlease confirm the order and send the payment QR.`;
-    
+
             const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, "_blank");
         }
     </script>
-    
 
-    <script>
-        const unitPrice = 963;
-        const quantityInput = document.getElementById("quantity");
-        const totalPriceDisplay = document.getElementById("totalPrice");
+<!-- <script>
+    function increaseQty() {
+      const input = document.getElementById("quantity");
+      input.value = parseInt(input.value) + 1;
+    }
+  
+    function decreaseQty() {
+      const input = document.getElementById("quantity");
+      if (parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1;
+      }
+    }
+  </script> -->
+  
 
-        function updateTotal() {
-            let quantity = parseInt(quantityInput.value);
-            if (!quantity || quantity < 1) {
-                quantity = 1;
-                quantityInput.value = 1;
-            }
-            const total = quantity * unitPrice;
-            totalPriceDisplay.textContent = `Total: ₹${total}`;
-        }
-
-        quantityInput.addEventListener("input", updateTotal);
-
-        // Initialize on page load
+  <script>
+    const unitPrice = 963;
+    const quantityInput = document.getElementById("quantity");
+    const totalPriceDisplay = document.getElementById("totalPrice");
+  
+    function updateTotal() {
+      let quantity = parseInt(quantityInput.value);
+      if (!quantity || quantity < 1) {
+        quantity = 1;
+        quantityInput.value = 1;
+      }
+      const total = quantity * unitPrice;
+      totalPriceDisplay.textContent = `Total: ₹${total}`;
+    }
+  
+    function increaseQty() {
+      quantityInput.value = parseInt(quantityInput.value) + 1;
+      updateTotal();
+    }
+  
+    function decreaseQty() {
+      if (parseInt(quantityInput.value) > 1) {
+        quantityInput.value = parseInt(quantityInput.value) - 1;
         updateTotal();
-    </script>
-
-
-
+      }
+    }
+  
+    quantityInput.addEventListener("input", updateTotal);
+  
+    updateTotal(); // initialize on load
+  </script>
+  
 </body>
 
 </html>
