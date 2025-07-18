@@ -427,3 +427,18 @@ img.animated.pulse {
     padding-right: 0;
     border-right: none;
 }
+
+.btn-play {
+    transition: 0.3s;
+    text-decoration: none;
+}
+.btn-play:hover {
+    transform: scale(1.1);
+}
+.card .position-relative img {
+    object-fit: cover;
+    height: 360px;
+}
+.card-body {
+    text-align: center;
+}
