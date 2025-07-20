@@ -37,6 +37,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
@@ -46,7 +47,8 @@
             <nav class="navbar navbar-expand-lg navbar-light p-0">
                 <a href="index.html" class="navbar-brand">
                     <!-- <h2 class="text-white">Zveda Oils</h2> -->
-                    <img src="img/Zvedalogo.png" alt="Zveda Logo" class="img-fluid" style="max-height: 40px; margin-bottom: 20px;">
+                    <img src="img/Zvedalogo.png" alt="Zveda Logo" class="img-fluid"
+                        style="max-height: 40px; margin-bottom: 20px;">
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
@@ -118,17 +120,14 @@
                         <div class="mt-4">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
                             <div class="flex items-center space-x-2">
-                              <button onclick="decreaseQty()" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">−</button>
-                              <input
-                                type="number"
-                                id="quantity"
-                                min="1"
-                                value="1"
-                                class="w-16 text-center border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
-                              />
-                              <button onclick="increaseQty()" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">+</button>
+                                <button onclick="decreaseQty()"
+                                    class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">−</button>
+                                <input type="number" id="quantity" min="1" value="1"
+                                    class="w-16 text-center border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none" />
+                                <button onclick="increaseQty()"
+                                    class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">+</button>
                             </div>
-                          </div>
+                        </div>
                         <p id="totalPrice" class="text-gray-800 mt-2 font-semibold">Total: ₹963</p>
                     </div>
                 </div>
@@ -183,11 +182,13 @@
 
                 <!-- Order Button -->
                 <div class="flex justify-center mt-8">
-                    <button onclick="sendToWhatsApp()"
+                    <button id="rzp-button"
                         class="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-600 transition shadow-lg">
                         ✅ Place Order From WhatsApp
                     </button>
                 </div>
+
+                <button id="rzp-button1" class="btn btn-primary">Pay ₹1</button>
 
                 <!-- Trust Badge -->
                 <div class="text-center mt-4 text-sm text-gray-500">
@@ -287,7 +288,7 @@
         }
     </script>
 
-<!-- <script>
+    <!-- <script>
     function increaseQty() {
       const input = document.getElementById("quantity");
       input.value = parseInt(input.value) + 1;
@@ -300,40 +301,79 @@
       }
     }
   </script> -->
-  
 
-  <script>
-    const unitPrice = 963;
-    const quantityInput = document.getElementById("quantity");
-    const totalPriceDisplay = document.getElementById("totalPrice");
-  
-    function updateTotal() {
-      let quantity = parseInt(quantityInput.value);
-      if (!quantity || quantity < 1) {
-        quantity = 1;
-        quantityInput.value = 1;
-      }
-      const total = quantity * unitPrice;
-      totalPriceDisplay.textContent = `Total: ₹${total}`;
-    }
-  
-    function increaseQty() {
-      quantityInput.value = parseInt(quantityInput.value) + 1;
-      updateTotal();
-    }
-  
-    function decreaseQty() {
-      if (parseInt(quantityInput.value) > 1) {
-        quantityInput.value = parseInt(quantityInput.value) - 1;
-        updateTotal();
-      }
-    }
-  
-    quantityInput.addEventListener("input", updateTotal);
-  
-    updateTotal(); // initialize on load
-  </script>
-  
+
+    <script>
+        const unitPrice = 963;
+        const quantityInput = document.getElementById("quantity");
+        const totalPriceDisplay = document.getElementById("totalPrice");
+
+        function updateTotal() {
+            let quantity = parseInt(quantityInput.value);
+            if (!quantity || quantity < 1) {
+                quantity = 1;
+                quantityInput.value = 1;
+            }
+            const total = quantity * unitPrice;
+            totalPriceDisplay.textContent = `Total: ₹${total}`;
+        }
+
+        function increaseQty() {
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+            updateTotal();
+        }
+
+        function decreaseQty() {
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+                updateTotal();
+            }
+        }
+
+        quantityInput.addEventListener("input", updateTotal);
+
+        updateTotal(); // initialize on load
+    </script>
+
+    <script>
+        var options = {
+            "key": "rzp_live_DRYLVTwEkDODAu", // ✅ Replace with your real LIVE KEY
+            "amount": 100, // Amount in paise (100 = ₹1)
+            "currency": "INR",
+            "name": "Zveda",
+            "description": "Zveda Haircare Payment",
+            "image": "https://yourdomain.com/logo.png", // Optional logo
+            "handler": function (response) {
+                // ✅ This is called on successful payment
+                alert("✅ Payment Successful!\nPayment ID: " + response.razorpay_payment_id);
+
+                // You can also redirect to thank-you page here
+                // window.location.href = "/thank-you.html";
+            },
+            "prefill": {
+                "name": "Test User",
+                "email": "test@example.com",
+                "contact": "9999999999"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+
+        document.getElementById('rzp-button1').onclick = function (e) {
+            rzp1.open();
+            e.preventDefault();
+        };
+
+        // Optional: Catch payment failure
+        rzp1.on('payment.failed', function (response) {
+            alert("❌ Payment Failed: " + response.error.description);
+        });
+    </script>
+
+
 </body>
 
 </html>
