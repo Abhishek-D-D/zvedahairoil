@@ -182,7 +182,7 @@
 
                 <!-- Order Button -->
                 <div class="flex justify-center mt-8">
-                    <button onclick="sendToWhatsApp()"
+                    <button onclick="saveToGoogleSheet()"
                         class="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-600 transition shadow-lg">
                         ✅ Place Order
                     </button>
@@ -370,6 +370,79 @@
         rzp1.on('payment.failed', function (response) {
             alert("❌ Payment Failed: " + response.error.description);
         });
+    </script>
+
+    <script>
+        function saveToGoogleSheet() {
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const address = document.getElementById("address").value.trim();
+            const city = document.getElementById("city").value.trim();
+            const pincode = document.getElementById("pincode").value.trim();
+            const quantity = document.getElementById("quantity").value.trim();
+
+            // Basic required fields check
+            if (!name || !phone || !email || !address || !city || !pincode || !quantity) {
+                alert("Please fill in all fields before proceeding.");
+                return;
+            }
+
+            // Phone number validation (Indian format: 10 digits)
+            const phoneRegex = /^[6-9]\d{9}$/;
+            if (!phoneRegex.test(phone)) {
+                alert("Please enter a valid 10-digit Indian phone number.");
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Address validation (minimum 10 characters)
+            if (address.length < 10) {
+                alert("Please enter a complete address with at least 10 characters.");
+                return;
+            }
+
+            // Pincode validation (6-digit number)
+            const pinRegex = /^\d{6}$/;
+            if (!pinRegex.test(pincode)) {
+                alert("Please enter a valid 6-digit postal code.");
+                return;
+            }
+
+            const data = {
+                name: name,
+                email: email,
+                phone: phone,
+                address: address,
+                city: city,
+                state: 'Karnataka',
+                pincode: pincode,
+                payment_id: '1111'
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbzIbcewppKNw2Qnv-Q4i6SDUIQNMeyBg1mSqE67Haw-v4T1DiSYFq8KFVUhrTbFMKz9/exec", { // ✅ Replace this with your Apps Script Web App URL
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.text())
+                .then(result => {
+                    alert("✅ Data saved to Google Sheet!");
+                    document.getElementById("testForm").reset();
+                })
+                .catch(error => {
+                    alert("❌ Failed to save data.");
+                    console.error(error);
+                });
+        }
     </script>
 
 
