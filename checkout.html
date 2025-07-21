@@ -234,6 +234,20 @@
         </div> -->
     </div>
 
+    <!-- Confirmation Popup -->
+    <div id="orderPopup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="checkmark-circle">
+                <div class="background"></div>
+                <div class="checkmark draw"></div>
+            </div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Your order has been placed and will be delivered within 3–7 working days.</p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+
     <script>
         const whatsappNumber = "917353553693";
 
@@ -440,108 +454,124 @@
         }
     </script>
 
-<script>
-    function handleCheckoutAndSave() {
-        // Step 1: Get form values
-        const name = document.getElementById("name").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const address = document.getElementById("address").value.trim();
-        const city = document.getElementById("city").value.trim();
-        const pincode = document.getElementById("pincode").value.trim();
-        const quantity = document.getElementById("quantity").value.trim();
+    <script>
+        function handleCheckoutAndSave() {
+            // Step 1: Get form values
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const address = document.getElementById("address").value.trim();
+            const city = document.getElementById("city").value.trim();
+            const pincode = document.getElementById("pincode").value.trim();
+            const quantity = document.getElementById("quantity").value.trim();
 
-        // Step 2: Validations
-        if (!name || !phone || !email || !address || !city || !pincode || !quantity) {
-            alert("⚠️ Please fill in all fields before proceeding.");
-            return;
-        }
-
-        const phoneRegex = /^[6-9]\d{9}$/;
-        if (!phoneRegex.test(phone)) {
-            alert("⚠️ Please enter a valid 10-digit Indian phone number.");
-            return;
-        }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert("⚠️ Please enter a valid email address.");
-            return;
-        }
-
-        if (address.length < 10) {
-            alert("⚠️ Please enter a complete address with at least 10 characters.");
-            return;
-        }
-
-        const pinRegex = /^\d{6}$/;
-        if (!pinRegex.test(pincode)) {
-            alert("⚠️ Please enter a valid 6-digit postal code.");
-            return;
-        }
-
-        // Step 3: Start Razorpay Payment
-        const options = {
-            "key": "rzp_live_DRYLVTwEkDODAu", // ✅ Your Live Razorpay Key
-            "amount": 100 * quantity, // Amount in paise (₹1 = 100)
-            "currency": "INR",
-            "name": "Zveda",
-            "description": "Zveda Haircare Payment",
-            "image": "https://yourdomain.com/logo.png", // Optional
-            "handler": function (response) {
-                // Step 4: On successful payment
-                const paymentId = response.razorpay_payment_id;
-
-                const formURL = "https://docs.google.com/forms/d/e/1FAIpQLScK0PLvXZ5PHhVwanzpR_WkCyKrVqe_Bjwai1oGWKU2SbHxUQ/formResponse";
-                const formData = new FormData();
-                formData.append("entry.137966236", name);
-                formData.append("entry.402325529", email);
-                formData.append("entry.1119161222", phone);
-                formData.append("entry.1895725893", address);
-                formData.append("entry.1156646242", city);
-                formData.append("entry.565442736", pincode);
-                formData.append("entry.1985786831", "Karnataka");     // Replace with actual state if needed
-                formData.append("entry.1378629200", paymentId);        // ✅ Actual Payment ID
-
-                fetch(formURL, {
-                    method: "POST",
-                    mode: "no-cors",
-                    body: formData
-                }).then(() => {
-                    alert("✅ Payment successful and data saved to Google Sheet!");
-                    // Optionally redirect:
-                    // window.location.href = "/thank-you.html";
-                }).catch((err) => {
-                    console.error("❌ Submission failed", err);
-                    alert("⚠️ Payment successful, but failed to save data. Please contact support.");
-                });
-            },
-            "prefill": {
-                "name": name,
-                "email": email,
-                "contact": phone
-            },
-            "theme": {
-                "color": "#3399cc"
+            // Step 2: Validations
+            if (!name || !phone || !email || !address || !city || !pincode || !quantity) {
+                alert("⚠️ Please fill in all fields before proceeding.");
+                return;
             }
-        };
 
-        const rzp = new Razorpay(options);
+            const phoneRegex = /^[6-9]\d{9}$/;
+            if (!phoneRegex.test(phone)) {
+                alert("⚠️ Please enter a valid 10-digit Indian phone number.");
+                return;
+            }
 
-        rzp.open();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("⚠️ Please enter a valid email address.");
+                return;
+            }
 
-        // Step 5: Handle payment failure
-        rzp.on('payment.failed', function (response) {
-            alert("❌ Payment Failed\nReason: " + response.error.description);
+            if (address.length < 10) {
+                alert("⚠️ Please enter a complete address with at least 10 characters.");
+                return;
+            }
+
+            const pinRegex = /^\d{6}$/;
+            if (!pinRegex.test(pincode)) {
+                alert("⚠️ Please enter a valid 6-digit postal code.");
+                return;
+            }
+
+            // Step 3: Start Razorpay Payment
+            const options = {
+                "key": "rzp_live_DRYLVTwEkDODAu", // ✅ Your Live Razorpay Key
+                "amount": 100 * quantity, // Amount in paise (₹1 = 100)
+                "currency": "INR",
+                "name": "Zveda",
+                "description": "Zveda Haircare Payment",
+                "image": "https://yourdomain.com/logo.png", // Optional
+                "handler": function (response) {
+                    // Step 4: On successful payment
+                    const paymentId = response.razorpay_payment_id;
+
+                    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLScK0PLvXZ5PHhVwanzpR_WkCyKrVqe_Bjwai1oGWKU2SbHxUQ/formResponse";
+                    const formData = new FormData();
+                    formData.append("entry.137966236", name);
+                    formData.append("entry.402325529", email);
+                    formData.append("entry.1119161222", phone);
+                    formData.append("entry.1895725893", address);
+                    formData.append("entry.1156646242", city);
+                    formData.append("entry.565442736", pincode);
+                    formData.append("entry.1985786831", "Karnataka");
+                    formData.append("entry.1378629200", paymentId);
+
+                    fetch(formURL, {
+                        method: "POST",
+                        mode: "no-cors",
+                        body: formData
+                    }).then(() => {
+                        showOrderPopup();
+                        // alert("✅ Payment successful and Your Order has been placed successfully!");
+                        // Optionally redirect:
+                        // window.location.href = "/thank-you.html";
+                    }).catch((err) => {
+                        console.error("❌ Submission failed", err);
+                        alert("⚠️ Payment successful, but failed to save data. Please contact support.");
+                    });
+                },
+                "prefill": {
+                    "name": name,
+                    "email": email,
+                    "contact": phone
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+
+            const rzp = new Razorpay(options);
+
+            rzp.open();
+
+            // Step 5: Handle payment failure
+            rzp.on('payment.failed', function (response) {
+                alert("❌ Payment Failed\nReason: " + response.error.description);
+            });
+        }
+
+        // Attach to button
+        document.getElementById("rzp-button1").addEventListener("click", function (e) {
+            e.preventDefault();
+            handleCheckoutAndSave();
         });
-    }
+    </script>
 
-    // Attach to button
-    document.getElementById("rzp-button1").addEventListener("click", function (e) {
-        e.preventDefault();
-        handleCheckoutAndSave();
-    });
-</script>
+    <script>
+        function showOrderPopup() {
+            document.getElementById("orderPopup").style.display = "flex";
+            document.body.classList.add("popup-active");
+        }
+
+        function closePopup() {
+            document.getElementById("orderPopup").style.display = "none";
+            document.body.classList.remove("popup-active");
+            // ✅ Redirect to homepage
+            window.location.href = "/";
+        }
+    </script>
+
 
 
 </body>
