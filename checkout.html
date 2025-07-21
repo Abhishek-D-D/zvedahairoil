@@ -111,7 +111,7 @@
                     <div class="flex-1 space-y-2">
                         <h3 class="text-lg font-semibold text-gray-900">Zveda Hair Oil</h3>
                         <p class="text-sm text-gray-600">200ml bottle</p>
-                        <p class="text-green-600 font-semibold text-lg">₹963 per bottle</p>
+                        <p class="text-green-600 font-semibold text-lg"><span style="text-decoration: line-through; color: gray; font-size: 16px; margin-right: 8px;">₹963</span>₹899 per bottle</p>
                         <!-- <div class="mt-4">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
                             <input type="number" id="quantity" min="1" value="1"
@@ -128,7 +128,7 @@
                                     class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">+</button>
                             </div>
                         </div>
-                        <p id="totalPrice" class="text-gray-800 mt-2 font-semibold">Total: ₹963</p>
+                        <p id="totalPrice" class="text-gray-800 mt-2 font-semibold">Total: ₹899</p>
                     </div>
                 </div>
             </div>
@@ -317,7 +317,7 @@
 
 
     <script>
-        const unitPrice = 963;
+        const unitPrice = 899;
         const quantityInput = document.getElementById("quantity");
         const totalPriceDisplay = document.getElementById("totalPrice");
 
@@ -351,7 +351,7 @@
     <script>
         var options = {
             "key": "rzp_live_DRYLVTwEkDODAu", // ✅ Replace with your real LIVE KEY
-            "amount": 100, // Amount in paise (100 = ₹1)
+            "amount": unitPrice * 100, // Amount in paise (100 = ₹1)
             "currency": "INR",
             "name": "Zveda",
             "description": "Zveda Haircare Payment",
@@ -497,7 +497,7 @@
             // Step 3: Start Razorpay Payment
             const options = {
                 "key": "rzp_live_DRYLVTwEkDODAu", // ✅ Your Live Razorpay Key
-                "amount": 100 * quantity, // Amount in paise (₹1 = 100)
+                "amount": 899 * quantity * 100, // Amount in paise (₹1 = 100)
                 "currency": "INR",
                 "name": "Zveda",
                 "description": "Zveda Haircare Payment",
