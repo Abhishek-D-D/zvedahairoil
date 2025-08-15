@@ -2,578 +2,478 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Secure Checkout | Complete Your Zveda Hair Oil Order</title>
-    <meta name="description"
-        content="Finalize your Zveda Hair Oil purchase securely. Review your order for the 200ml Ayurvedic hair growth oil and complete your transaction.">
-    <meta name="keywords"
-        content="Zveda Hair Oil checkout, secure payment, buy hair oil online, Ayurvedic oil purchase, Zveda order completion, hair growth oil payment.">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8" />
+  <title>Secure Checkout | Complete Your Zveda Hair Oil Order</title>
+  <meta name="description" content="Finalize your Zveda Hair Oil purchase securely. Review your order for the 200ml Ayurvedic hair growth oil and complete your transaction with Online or Cash on Delivery.">
+  <meta name="keywords" content="Zveda Hair Oil checkout, secure payment, buy hair oil online, Ayurvedic oil purchase, Zveda order completion, hair growth oil payment, cash on delivery">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <!-- Favicon -->
-    <link href="img/favicon-bc.jpeg" rel="icon">
+  <!-- Favicon -->
+  <link href="img/favicon-bc.jpeg" rel="icon" />
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:wght@200;600;700&display=swap"
-        rel="stylesheet">
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <!-- Libraries Stylesheet (optional: owl/animate if used elsewhere) -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet" />
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap (kept for navbar layout) -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- ====== Template UI -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-</head>
-
-<body class="bg-gray-50 text-gray-800">
-    <!-- Navbar Start -->
-    <div class="container-fluid sticky-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light p-0">
-                <a href="index.html" class="navbar-brand">
-                    <!-- <h2 class="text-white">Zveda Oils</h2> -->
-                    <img src="img/Zvedalogo.png" alt="Zveda Logo" class="img-fluid"
-                        style="max-height: 40px; margin-bottom: 20px;">
-                </a>
-                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link active">About</a>
-                        <a href="product.html" class="nav-item nav-link">Products</a>
-                        <a href="how-to-use.html" class="nav-item nav-link">How To Use</a>
-                        <!-- ==== Drop Down Header== -->
-                        <!-- <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item">Features</a>
-                                <a href="how-to-use.html" class="dropdown-item">How To Use</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="blog.html" class="dropdown-item">Blog Articles</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div> -->
-                        <!-- ======================================== -->
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    </div>
-                    <a href="" class="btn btn-dark py-2 px-4 d-none d-lg-inline-block">Shop Now</a>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <!-- Navbar End -->
-
-
-    <!-- Hero Start -->
-    <div class="container-fluid bg-primary hero-header mb-5">
-        <div class="container text-center">
-            <h1 class="display-4 text-white mb-3 animated slideInDown">Checkout</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center mb-0 animated slideInDown">
-                    <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="contact.html">Contact Us</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Checkout</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <!-- Hero End -->
-
-    <!-- Background Container -->
-    <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white py-10 px-4">
-        <div class="max-w-4xl mx-auto">
-            <!-- Product Summary Card -->
-            <div class="bg-white shadow-xl rounded-2xl p-6 mb-10 border border-gray-100">
-                <h2 class="text-2xl font-semibold mb-6 text-gray-800 flex items-center gap-2">
-                    🛍️ Product Summary
-                </h2>
-                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
-                    <img src="img/zvedaoil-1.png" alt="Zveda Oil"
-                        class="w-36 h-36 object-contain rounded-xl border border-gray-200" />
-                    <div class="flex-1 space-y-2">
-                        <h3 class="text-lg font-semibold text-gray-900">Zveda Hair Oil</h3>
-                        <p class="text-sm text-gray-600">200ml bottle</p>
-                        <p class="text-green-600 font-semibold text-lg"><span
-                                style="text-decoration: line-through; color: gray; font-size: 16px; margin-right: 8px;">₹963</span>₹499
-                            per bottle</p>
-                        <!-- <div class="mt-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
-                            <input type="number" id="quantity" min="1" value="1"
-                                class="w-24 border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none" />
-                        </div> -->
-                        <div class="mt-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
-                            <div class="flex items-center space-x-2">
-                                <button onclick="decreaseQty()"
-                                    class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">−</button>
-                                <input type="number" id="quantity" min="1" value="1"
-                                    class="w-16 text-center border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none" />
-                                <button onclick="increaseQty()"
-                                    class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">+</button>
-                            </div>
-                        </div>
-                        <p id="totalPrice" class="text-gray-800 mt-2 font-semibold">Total: ₹499</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Shipping Address Card -->
-            <div class="bg-white shadow-xl rounded-2xl p-6 border border-gray-100">
-                <h2 class="text-2xl font-semibold mb-6 text-gray-800 flex items-center gap-2">
-                    🚚 Shipping Address
-                </h2>
-                <form id="checkoutForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                        <input type="text" id="name"
-                            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
-                            required />
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                        <input type="tel" id="phone"
-                            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
-                            required />
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                        <input type="email" id="email"
-                            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
-                            required />
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                        <textarea id="address"
-                            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
-                            rows="3" required></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                        <input type="text" id="city"
-                            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
-                            required />
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
-                        <input type="text" id="pincode" maxlength="6"
-                            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
-                            pattern="\d{6}" title="Please enter a 6-digit postal code" required
-                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);" />
-                    </div>
-
-                </form>
-
-                <!-- Order Button -->
-                <div class="flex justify-center mt-8">
-                    <button onclick="handleCheckoutAndSave()"
-                        class="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-600 transition shadow-lg">
-                        ✅ Place Order
-                    </button>
-                </div>
-
-
-                <!-- Trust Badge -->
-                <div class="text-center mt-4 text-sm text-gray-500">
-                    🔒 Secure Order • 🧾 Verified Purchase • 💬 Support WhatsApp Payment
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Payment Section -->
-    <!-- <div class="bg-white shadow-lg rounded-xl p-6">
-            <h2 class="text-xl font-semibold mb-4">Make Payment</h2>
-
-            <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
-                <img src="img/qrcode.jpeg" alt="QR Code" class="w-80 h-80 border rounded-md object-contain" />
-
-                <div class="flex-1">
-                    <p class="text-lg font-medium mb-1">UPI ID:</p>
-                    <div class="flex items-center gap-2">
-                        <span id="upiId" class="text-gray-700 font-mono text-base">abhishekdeshapande@ybl</span>
-                        <button onclick="copyUPI()"
-                            class="text-blue-600 hover:text-blue-800 text-sm flex items-center gap-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 16h8m-4-8v8m-4-4h8" />
-                            </svg>
-                            Copy
-                        </button>
-                    </div>
-
-                    <p class="text-sm text-gray-600 mt-4">
-                        Please scan the QR code or use the UPI ID to make payment. Then send a screenshot below.
-                    </p>
-
-                    <button onclick="sendToWhatsApp()"
-                        class="mt-6 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition w-full sm:w-auto">
-                        Send Payment Screenshot on WhatsApp
-                    </button>
-                </div>
-            </div>
-        </div> -->
-    </div>
-
-    <!-- Confirmation Popup -->
-    <div id="orderPopup" class="popup-overlay">
-        <div class="popup-content">
-            <div class="checkmark-circle">
-                <div class="background"></div>
-                <div class="checkmark draw"></div>
-            </div>
-            <h2>Order Placed Successfully!</h2>
-            <p>Your order has been placed and will be delivered within 3–7 working days.</p>
-            <button onclick="closePopup()">OK</button>
-        </div>
-    </div>
-
-
-    <script>
-        const whatsappNumber = "917353553693";
-
-        function sendToWhatsApp() {
-            const name = document.getElementById("name").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const address = document.getElementById("address").value.trim();
-            const city = document.getElementById("city").value.trim();
-            const pincode = document.getElementById("pincode").value.trim();
-            const quantity = document.getElementById("quantity").value.trim();
-
-            // Basic required fields check
-            if (!name || !phone || !email || !address || !city || !pincode || !quantity) {
-                alert("Please fill in all fields before proceeding.");
-                return;
-            }
-
-            // Phone number validation (Indian format: 10 digits)
-            const phoneRegex = /^[6-9]\d{9}$/;
-            if (!phoneRegex.test(phone)) {
-                alert("Please enter a valid 10-digit Indian phone number.");
-                return;
-            }
-
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert("Please enter a valid email address.");
-                return;
-            }
-
-            // Address validation (minimum 10 characters)
-            if (address.length < 10) {
-                alert("Please enter a complete address with at least 10 characters.");
-                return;
-            }
-
-            // Pincode validation (6-digit number)
-            const pinRegex = /^\d{6}$/;
-            if (!pinRegex.test(pincode)) {
-                alert("Please enter a valid 6-digit postal code.");
-                return;
-            }
-
-            // All good, construct message
-            const message = `Hi Zveda Oils, I want to place an order:\n\n🛒 *Product:* Zveda Hair Oil (200ml)\n🔢 *Quantity:* ${quantity}\n\n📦 *Shipping Details:*\n👤 Name: ${name}\n📞 Phone: ${phone}\n✉️ Email: ${email}\n🏠 Address: ${address}, ${city} - ${pincode}\n\nPlease confirm the order and send the payment QR.`;
-
-            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, "_blank");
+  <!-- Tailwind (primary for this page UI) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui"] },
+          colors: { brand: { DEFAULT: "#0ea5e9", dark: "#0284c7" }, accent: { DEFAULT: "#16a34a" } }
         }
-    </script>
-
-    <!-- <script>
-    function increaseQty() {
-      const input = document.getElementById("quantity");
-      input.value = parseInt(input.value) + 1;
-    }
-  
-    function decreaseQty() {
-      const input = document.getElementById("quantity");
-      if (parseInt(input.value) > 1) {
-        input.value = parseInt(input.value) - 1;
       }
     }
-  </script> -->
+  </script>
 
+  <!-- Razorpay Checkout -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-    <script>
-        const unitPrice = 499;
-        const quantityInput = document.getElementById("quantity");
-        const totalPriceDisplay = document.getElementById("totalPrice");
+  <!-- Page micro styles (for the success popup + trust ribbon) -->
+  <style>
+    html, body { scroll-behavior: smooth; }
+    .trust-ribbon { background: linear-gradient(90deg, #0ea5e9, #16a34a); }
+    .popup-overlay { display:none; position: fixed; inset: 0; background: rgba(0,0,0,.55); align-items: center; justify-content: center; z-index: 60; }
+    .popup-card { width: 92vw; max-width: 480px; background: #fff; border-radius: 1rem; padding: 2rem; text-align: center; box-shadow: 0 25px 60px rgba(0,0,0,.15); }
+  </style>
+</head>
 
-        function updateTotal() {
-            let quantity = parseInt(quantityInput.value);
-            if (!quantity || quantity < 1) {
-                quantity = 1;
-                quantityInput.value = 1;
-            }
-            const total = quantity * unitPrice;
-            totalPriceDisplay.textContent = `Total: ₹${total}`;
-        }
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Top trust ribbon -->
+  <div class="trust-ribbon text-white text-center text-sm py-2">
+    <div class="max-w-6xl mx-auto px-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <span class="flex items-center gap-2"><i class="bi bi-shield-check"></i> 256‑bit SSL Secure Checkout</span>
+      <span class="hidden sm:inline">•</span>
+      <span class="flex items-center gap-2"><i class="bi bi-truck"></i> Fast Shipping (3–7 working days)</span>
+      <span class="hidden sm:inline">•</span>
+      <span class="flex items-center gap-2"><i class="bi bi-cash-coin"></i> Cash on Delivery Available</span>
+    </div>
+  </div>
 
-        function increaseQty() {
-            quantityInput.value = parseInt(quantityInput.value) + 1;
-            updateTotal();
-        }
+  <!-- Navbar Start (Bootstrap layout retained for site consistency) -->
+  <div class="container-fluid sticky-top bg-white/80 backdrop-blur border-b border-gray-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a href="index.html" class="navbar-brand py-3">
+          <img src="img/Zvedalogo.png" alt="Zveda Logo" class="img-fluid" style="max-height: 44px;" />
+        </a>
+        <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+            <a href="about.html" class="nav-item nav-link">About</a>
+            <a href="product.html" class="nav-item nav-link">Products</a>
+            <a href="how-to-use.html" class="nav-item nav-link">How To Use</a>
+            <a href="contact.html" class="nav-item nav-link">Contact</a>
+          </div>
+          <a href="product.html" class="btn btn-dark py-2 px-4 d-none d-lg-inline-block rounded-pill">Shop Now</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Navbar End -->
 
-        function decreaseQty() {
-            if (parseInt(quantityInput.value) > 1) {
-                quantityInput.value = parseInt(quantityInput.value) - 1;
-                updateTotal();
-            }
-        }
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-sky-500 to-sky-600 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-14 text-center">
+      <h1 class="text-3xl md:text-5xl font-semibold tracking-tight">Checkout</h1>
+      <p class="mt-3 text-white/90">Securely complete your Zveda Hair Oil order — choose Online Payment or Cash on Delivery.</p>
+      <nav class="mt-4 text-white/80 text-sm">
+        <ol class="flex items-center justify-center gap-2 flex-wrap">
+          <li><a class="hover:underline" href="index.html">Home</a></li>
+          <li>›</li>
+          <li><a class="hover:underline" href="product.html">Products</a></li>
+          <li>›</li>
+          <li class="text-white">Checkout</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
 
-        quantityInput.addEventListener("input", updateTotal);
+  <!-- Main -->
+  <main class="py-10 md:py-14 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Left: Forms -->
+      <div class="lg:col-span-2 space-y-6">
+        <!-- Product Summary -->
+        <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <h2 class="text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2"><span>🛍️</span> Order Summary</h2>
+          <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+            <img src="img/zvedaoil-1.png" alt="Zveda Hair Oil 200ml" class="w-32 h-32 md:w-36 md:h-36 object-contain rounded-xl border border-gray-200 bg-white" />
+            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+              <div class="space-y-1">
+                <h3 class="text-lg font-semibold text-gray-900">Zveda Hair Oil</h3>
+                <p class="text-sm text-gray-600">200ml bottle</p>
+                <p class="text-base md:text-lg font-semibold"><span class="line-through text-gray-400 mr-2">₹963</span><span class="text-green-600">₹499</span> <span class="text-xs text-gray-500">incl. taxes</span></p>
+                <div class="mt-3">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
+                  <div class="inline-flex items-center rounded-xl border border-gray-300 overflow-hidden">
+                    <button type="button" class="px-3 py-2 hover:bg-gray-100" onclick="decreaseQty()" aria-label="Decrease quantity">−</button>
+                    <input id="quantity" type="number" min="1" value="1" class="w-16 text-center outline-none py-2" />
+                    <button type="button" class="px-3 py-2 hover:bg-gray-100" onclick="increaseQty()" aria-label="Increase quantity">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-3 bg-gray-50 rounded-xl p-4 h-max">
+                <div class="text-sm text-gray-600">Item Total</div><div class="text-right font-medium" id="priceItems">₹499</div>
+                <div class="text-sm text-gray-600">Shipping</div><div class="text-right font-medium" id="priceShipping">Free</div>
+                <div class="text-sm text-gray-600">Payment Method</div><div class="text-right font-medium" id="priceMethod">Online / COD</div>
+                <div class="col-span-2 border-t pt-2 mt-1"></div>
+                <div class="text-base font-semibold">Grand Total</div><div class="text-right text-lg font-bold text-gray-900" id="priceGrand">₹499</div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        updateTotal(); // initialize on load
-    </script>
+        <!-- Shipping Address -->
+        <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <h2 class="text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2"><span>🚚</span> Shipping Address</h2>
+          <form id="checkoutForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+              <input type="text" id="name" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" required />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+              <input type="tel" id="phone" inputmode="numeric" maxlength="10" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" required />
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input type="email" id="email" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" required />
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+              <textarea id="address" rows="3" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" required></textarea>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
+              <input type="text" id="city" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" required />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
+              <input type="text" id="pincode" maxlength="6" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" pattern="\d{6}" title="Please enter a 6-digit postal code" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);" />
+            </div>
+          </form>
+        </section>
 
-    <script>
-        var options = {
-            "key": "rzp_live_DRYLVTwEkDODAu", // ✅ Replace with your real LIVE KEY
-            "amount": unitPrice * 100, // Amount in paise (100 = ₹1)
-            "currency": "INR",
-            "name": "Zveda",
-            "description": "Zveda Haircare Payment",
-            "image": "https://yourdomain.com/logo.png", // Optional logo
-            "handler": function (response) {
-                // ✅ This is called on successful payment
-                alert("✅ Payment Successful!\nPayment ID: " + response.razorpay_payment_id);
+        <!-- Payment Method -->
+        <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <h2 class="text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2"><span>💳</span> Payment Method</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <label class="flex items-start gap-3 p-4 border rounded-xl hover:border-sky-300 cursor-pointer">
+              <input type="radio" name="payMethod" id="payOnline" class="mt-1" checked />
+              <div>
+                <div class="font-semibold">Pay Online (UPI / Card / Net Banking)</div>
+                <p class="text-sm text-gray-600 mt-1">Secure Razorpay checkout • Instant confirmation</p>
+              </div>
+            </label>
+            <label class="flex items-start gap-3 p-4 border rounded-xl hover:border-sky-300 cursor-pointer">
+              <input type="radio" name="payMethod" id="payCOD" class="mt-1" />
+              <div>
+                <div class="font-semibold">Cash on Delivery (COD)</div>
+                <p class="text-sm text-gray-600 mt-1">Pay at your doorstep • No upfront payment</p>
+              </div>
+            </label>
+          </div>
 
-                // You can also redirect to thank-you page here
-                // window.location.href = "/thank-you.html";
-            },
-            "prefill": {
-                "name": "Test User",
-                "email": "test@example.com",
-                "contact": "9999999999"
-            },
-            "theme": {
-                "color": "#3399cc"
-            }
-        };
+          <!-- Terms & Privacy -->
+          <div class="mt-6 flex items-start gap-3">
+            <input type="checkbox" id="agree" class="mt-1" />
+            <label for="agree" class="text-sm text-gray-600">I agree to the <a href="terms_condition.html" class="text-sky-600 hover:underline">Terms of Service</a> and <a href="privacy_policy.html" class="text-sky-600 hover:underline">Privacy Policy</a>.</label>
+          </div>
 
-        var rzp1 = new Razorpay(options);
+          <!-- Action Buttons -->
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button id="btnPlaceOrder" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3 rounded-xl shadow-sm">Pay Securely</button> 
+            <!-- <button id="whatsappOrderBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+                <i class="bi bi-whatsapp"></i> Order via WhatsApp
+              </button> -->
+          </div>
 
-        document.getElementById('rzp-button1').onclick = function (e) {
-            rzp1.open();
-            e.preventDefault();
-        };
+          <!-- Assurance badges -->
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs text-gray-600">
+            <div class="border rounded-xl p-3"><i class="bi bi-lock text-base"></i><div class="mt-1">SSL Secured</div></div>
+            <div class="border rounded-xl p-3"><i class="bi bi-patch-check text-base"></i><div class="mt-1">Genuine Product</div></div>
+            <div class="border rounded-xl p-3"><i class="bi bi-truck text-base"></i><div class="mt-1">Tracked Shipping</div></div>
+            <div class="border rounded-xl p-3 text-center">
+                <i class="bi bi-droplet text-success text-base"></i>
+                <div class="mt-1">No Chemicals</div>
+              </div>
+              
+          </div>
+        </section>
+      </div>
 
-        // Optional: Catch payment failure
-        rzp1.on('payment.failed', function (response) {
-            alert("❌ Payment Failed: " + response.error.description);
-        });
-    </script>
+      <!-- Right: Help & Support -->
+      <aside class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <h3 class="font-semibold text-lg mb-3">Need Help?</h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-center gap-2"><i class="bi bi-envelope"></i> zvedaoils@gmail.com</li>
+            <li class="flex items-center gap-2"><i class="bi bi-telephone"></i> +91 73383 48401</li>
+            <li class="flex items-center gap-2"><i class="bi bi-clock"></i> Mon–Sat, 10:00 am – 6:00 pm</li>
+          </ul>
+          <div class="mt-4 text-xs text-gray-500">Payments are processed by Razorpay. We do not store your card or UPI details.</div>
+        </div>
 
-    <script>
-        function saveToGoogleSheet() {
-            const name = document.getElementById("name").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const address = document.getElementById("address").value.trim();
-            const city = document.getElementById("city").value.trim();
-            const pincode = document.getElementById("pincode").value.trim();
-            const quantity = document.getElementById("quantity").value.trim();
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <h3 class="font-semibold text-lg mb-3">Why buy from Zveda?</h3>
+          <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+            <li>Trusted Ayurvedic Solution: Rooted in ancient 'Taila Paka Vidhi</li>
+            <li>100% Pure & Natural: No chemicals, only nature's best herbs</li>
+            <li>Real Results: Proven effective for hair fall and growth</li>
+            <li>Multi-Action Formula: Reduces hair fall, promotes growth, adds shine</li>
+            <li>Secure & Fast Delivery: Shipped from Bengaluru, right to you</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
 
-            // Basic required fields check
-            if (!name || !phone || !email || !address || !city || !pincode || !quantity) {
-                alert("Please fill in all fields before proceeding.");
-                return;
-            }
+  <!-- Footer mini -->
+  <footer class="border-t bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-600 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>© <span id="year"></span> Zveda. All rights reserved.</div>
+      <div class="flex items-center gap-4">
+        <a href="privacy_policy.html" class="hover:text-gray-900">Privacy Policy</a>
+        <a href="terms_condition.html" class="hover:text-gray-900">Terms & Conditions</a>
+        <!-- <a href="#" class="hover:text-gray-900">Refunds</a> -->
+      </div>
+    </div>
+  </footer>
 
-            // Phone number validation (Indian format: 10 digits)
-            const phoneRegex = /^[6-9]\d{9}$/;
-            if (!phoneRegex.test(phone)) {
-                alert("Please enter a valid 10-digit Indian phone number.");
-                return;
-            }
+  <!-- Success / Confirmation Popup -->
+  <div id="orderPopup" class="popup-overlay">
+    <div class="popup-card">
+      <div class="mx-auto w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
+        <i class="bi bi-check2 text-3xl text-green-600"></i>
+      </div>
+      <h2 class="text-xl font-semibold mt-4">Order Placed Successfully!</h2>
+      <p class="text-gray-600 mt-2">Your order has been placed and will be delivered within 3–7 working days.</p>
+      <button onclick="closePopup()" class="mt-6 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2.5 rounded-lg">OK</button>
+    </div>
+  </div>
 
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert("Please enter a valid email address.");
-                return;
-            }
+  <!-- JavaScript -->
+  <script>
+    // ====== CONFIG (edit these) ======
+    const UPI_WHATSAPP_NUMBER = "917353553693"; // in international format without +
+    const RAZORPAY_KEY = "rzp_live_DRYLVTwEkDODAu"; // ⚠️ Live key. For production, create orders server-side for better security.
+    const UNIT_PRICE = 499; // INR
+    const SHIPPING_FEE_PREPAID = 0; // set if needed
+    const SHIPPING_FEE_COD = 0; // set a COD fee if you want, e.g., 50
 
-            // Address validation (minimum 10 characters)
-            if (address.length < 10) {
-                alert("Please enter a complete address with at least 10 characters.");
-                return;
-            }
+    // Google Form mapping (change entry IDs to your form field IDs)
+    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScK0PLvXZ5PHhVwanzpR_WkCyKrVqe_Bjwai1oGWKU2SbHxUQ/formResponse";
+    const GF_NAME = "entry.137966236";
+    const GF_EMAIL = "entry.402325529";
+    const GF_PHONE = "entry.1119161222";
+    const GF_ADDRESS = "entry.1895725893";
+    const GF_CITY = "entry.1156646242";
+    const GF_PIN = "entry.565442736";
+    const GF_STATE = "entry.1985786831"; // if you don't capture state, you can send a placeholder
+    const GF_PAYMENT_ID = "entry.1378629200"; // Razorpay payment id or COD id
+    // (Optional) Add more fields in your sheet like quantity, payment method, amount, etc.
 
-            // Pincode validation (6-digit number)
-            const pinRegex = /^\d{6}$/;
-            if (!pinRegex.test(pincode)) {
-                alert("Please enter a valid 6-digit postal code.");
-                return;
-            }
-            const formURL = "https://docs.google.com/forms/d/e/1FAIpQLScK0PLvXZ5PHhVwanzpR_WkCyKrVqe_Bjwai1oGWKU2SbHxUQ/formResponse";
+    // ====== UTILITIES ======
+    const el = id => document.getElementById(id);
+    const priceItems = el('priceItems');
+    const priceShipping = el('priceShipping');
+    const priceGrand = el('priceGrand');
 
-            const formData = new FormData();
-            formData.append("entry.137966236", name);
-            formData.append("entry.402325529", email);
-            formData.append("entry.1119161222", phone);
-            formData.append("entry.1895725893", address);
-            formData.append("entry.1156646242", city);
-            formData.append("entry.565442736", pincode);
-            formData.append("entry.1985786831", "Karnataka");     // Dummy state for now
-            formData.append("entry.1378629200", "TEST123");        // Dummy payment ID for testing
+    const qtyInput = el('quantity');
+    const payOnlineRadio = el('payOnline');
+    const payCODRadio = el('payCOD');
 
-            fetch(formURL, {
-                method: "POST",
-                mode: "no-cors",
-                body: formData
-            }).then(() => {
-                alert("✅ Test data submitted to Google Sheet successfully!");
-            }).catch((err) => {
-                console.error("❌ Submission failed", err);
-                alert("❌ Submission failed. Please try again.");
-            });
+    function formatINR(n) { return `₹${Number(n).toLocaleString('en-IN')}`; }
+    function nowId(prefix) { const t = new Date(); return `${prefix}-${t.getFullYear()}${(t.getMonth()+1).toString().padStart(2,'0')}${t.getDate().toString().padStart(2,'0')}-${t.getHours().toString().padStart(2,'0')}${t.getMinutes().toString().padStart(2,'0')}${t.getSeconds().toString().padStart(2,'0')}`; }
 
-        }
-    </script>
+    function updateTotals() {
+      let q = parseInt(qtyInput.value) || 1; if (q < 1) q = 1; qtyInput.value = q;
+      const items = q * UNIT_PRICE;
+      const shipping = payCODRadio.checked ? SHIPPING_FEE_COD : SHIPPING_FEE_PREPAID;
+      const grand = items + shipping;
+      priceItems.textContent = formatINR(items);
+      priceShipping.textContent = shipping === 0 ? 'Free' : formatINR(shipping);
+      priceGrand.textContent = formatINR(grand);
+      document.getElementById('priceMethod').textContent = payCODRadio.checked ? 'Cash on Delivery' : 'Online (Razorpay)';
+      document.getElementById('btnPlaceOrder').textContent = payCODRadio.checked ? 'Place COD Order' : 'Pay Securely';
+    }
 
-    <script>
-        function handleCheckoutAndSave() {
-            // Step 1: Get form values
-            const name = document.getElementById("name").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const address = document.getElementById("address").value.trim();
-            const city = document.getElementById("city").value.trim();
-            const pincode = document.getElementById("pincode").value.trim();
-            const quantity = document.getElementById("quantity").value.trim();
+    function increaseQty() { qtyInput.value = (parseInt(qtyInput.value) || 1) + 1; updateTotals(); }
+    function decreaseQty() { const v = (parseInt(qtyInput.value) || 1); qtyInput.value = v > 1 ? v - 1 : 1; updateTotals(); }
+    qtyInput.addEventListener('input', updateTotals);
+    payOnlineRadio.addEventListener('change', updateTotals);
+    payCODRadio.addEventListener('change', updateTotals);
 
-            // Step 2: Validations
-            if (!name || !phone || !email || !address || !city || !pincode || !quantity) {
-                alert("⚠️ Please fill in all fields before proceeding.");
-                return;
-            }
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-            const phoneRegex = /^[6-9]\d{9}$/;
-            if (!phoneRegex.test(phone)) {
-                alert("⚠️ Please enter a valid 10-digit Indian phone number.");
-                return;
-            }
+    // ====== VALIDATION ======
+    function getFormValues() {
+      const name = el('name').value.trim();
+      const phone = el('phone').value.trim();
+      const email = el('email').value.trim();
+      const address = el('address').value.trim();
+      const city = el('city').value.trim();
+      const pincode = el('pincode').value.trim();
+      const quantity = (parseInt(el('quantity').value) || 1).toString();
+      return { name, phone, email, address, city, pincode, quantity };
+    }
 
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert("⚠️ Please enter a valid email address.");
-                return;
-            }
+    function validateForm(v) {
+      if (!v.name || !v.phone || !v.email || !v.address || !v.city || !v.pincode) return 'Please fill in all fields.';
+      if (!/^([6-9]\d{9})$/.test(v.phone)) return 'Enter a valid 10‑digit Indian phone number.';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) return 'Enter a valid email address.';
+      if (v.address.length < 10) return 'Enter a complete address (at least 10 characters).';
+      if (!/^\d{6}$/.test(v.pincode)) return 'Enter a valid 6‑digit postal code.';
+      if (!document.getElementById('agree').checked) return 'Please accept Terms & Privacy to continue.';
+      return null;
+    }
 
-            if (address.length < 10) {
-                alert("⚠️ Please enter a complete address with at least 10 characters.");
-                return;
-            }
+    // ====== GOOGLE SHEETS SAVE ======
+    function saveOrderToGoogleSheet(values, paymentId, paymentMethod, amount) {
+      const fd = new FormData();
+      fd.append(GF_NAME, values.name);
+      fd.append(GF_EMAIL, values.email);
+      fd.append(GF_PHONE, values.phone);
+      fd.append(GF_ADDRESS, values.address);
+      fd.append(GF_CITY, values.city);
+      fd.append(GF_PIN, values.pincode);
+      fd.append(GF_STATE, 'N/A'); // update if you add a state field on page
+      fd.append(GF_PAYMENT_ID, `${paymentMethod}:${paymentId}`);
+      // You can add additional hidden fields to your Google Form to capture amount, qty, method, etc.
 
-            const pinRegex = /^\d{6}$/;
-            if (!pinRegex.test(pincode)) {
-                alert("⚠️ Please enter a valid 6-digit postal code.");
-                return;
-            }
+      return fetch(GOOGLE_FORM_URL, { method: 'POST', mode: 'no-cors', body: fd });
+    }
 
-            // Step 3: Start Razorpay Payment
-            const options = {
-                "key": "rzp_live_DRYLVTwEkDODAu", // ✅ Your Live Razorpay Key
-                "amount": 499 * quantity * 100, // Amount in paise (₹1 = 100)
-                "currency": "INR",
-                "name": "Zveda",
-                "description": "Zveda Haircare Payment",
-                "image": "https://yourdomain.com/logo.png", // Optional
-                "handler": function (response) {
-                    // Step 4: On successful payment
-                    const paymentId = response.razorpay_payment_id;
+    // ====== RAZORPAY (ONLINE PAYMENT) ======
+    function payOnlineFlow(values) {
+      const quantity = parseInt(values.quantity);
+      const amountPaise = ((UNIT_PRICE * quantity) + SHIPPING_FEE_PREPAID) * 100; // paise
 
-                    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLScK0PLvXZ5PHhVwanzpR_WkCyKrVqe_Bjwai1oGWKU2SbHxUQ/formResponse";
-                    const formData = new FormData();
-                    formData.append("entry.137966236", name);
-                    formData.append("entry.402325529", email);
-                    formData.append("entry.1119161222", phone);
-                    formData.append("entry.1895725893", address);
-                    formData.append("entry.1156646242", city);
-                    formData.append("entry.565442736", pincode);
-                    formData.append("entry.1985786831", "Karnataka");
-                    formData.append("entry.1378629200", paymentId);
+      // ⚠️ Best practice is to create an order (order_id) from your backend and pass it here.
+      // Using only amount on client works but is less secure against tampering.
+      const rpOptions = {
+        key: RAZORPAY_KEY,
+        amount: amountPaise.toString(),
+        currency: 'INR',
+        name: 'Zveda',
+        description: 'Zveda Haircare Payment',
+        image: 'img/Zvedalogo.png',
+        handler: function (response) {
+          const paymentId = response.razorpay_payment_id;
+          saveOrderToGoogleSheet(values, paymentId, 'ONLINE', amountPaise / 100)
+            .then(() => showOrderPopup())
+            .catch(() => alert('Payment successful, but failed to save order. Please contact support.'));
+        },
+        prefill: { name: values.name, email: values.email, contact: values.phone },
+        theme: { color: '#0ea5e9' }
+      };
 
-                    fetch(formURL, {
-                        method: "POST",
-                        mode: "no-cors",
-                        body: formData
-                    }).then(() => {
-                        showOrderPopup();
-                        // alert("✅ Payment successful and Your Order has been placed successfully!");
-                        // Optionally redirect:
-                        // window.location.href = "/thank-you.html";
-                    }).catch((err) => {
-                        console.error("❌ Submission failed", err);
-                        alert("⚠️ Payment successful, but failed to save data. Please contact support.");
-                    });
-                },
-                "prefill": {
-                    "name": name,
-                    "email": email,
-                    "contact": phone
-                },
-                "theme": {
-                    "color": "#3399cc"
-                }
-            };
+      const rzp = new Razorpay(rpOptions);
+      rzp.on('payment.failed', function (resp) {
+        alert('Payment failed: ' + (resp.error && resp.error.description ? resp.error.description : 'Please try again.'));
+      });
+      rzp.open();
+    }
 
-            const rzp = new Razorpay(options);
+    // ====== COD FLOW ======
+    function codFlow(values) {
+      const codId = nowId('COD');
+      const amount = (UNIT_PRICE * parseInt(values.quantity)) + SHIPPING_FEE_COD;
+      saveOrderToGoogleSheet(values, codId, 'COD', amount)
+        .then(() => showOrderPopup())
+        .catch(() => alert('Order saved failed. Please contact support on WhatsApp.'));
+    }
 
-            rzp.open();
+    // ====== BUTTON HANDLERS ======
+    document.getElementById('btnPlaceOrder').addEventListener('click', function () {
+      const vals = getFormValues();
+      const err = validateForm(vals);
+      if (err) { alert('\u26A0\uFE0F ' + err); return; }
+      if (payCODRadio.checked) codFlow(vals); else payOnlineFlow(vals);
+    });
 
-            // Step 5: Handle payment failure
-            rzp.on('payment.failed', function (response) {
-                alert("❌ Payment Failed\nReason: " + response.error.description);
-            });
-        }
+    document.getElementById('btnWhatsApp').addEventListener('click', function () {
+      const v = getFormValues();
+      const quantity = parseInt(v.quantity) || 1;
+      const method = payCODRadio.checked ? 'Cash on Delivery' : 'Online (Razorpay)';
+      const total = (quantity * UNIT_PRICE) + (payCODRadio.checked ? SHIPPING_FEE_COD : SHIPPING_FEE_PREPAID);
+      const message = `Hi Zveda Oils, I want to place an order:%0a%0a` +
+        `\uD83D\uDED2 *Product:* Zveda Hair Oil (200ml)%0a` +
+        `\uD83D\uDD22 *Quantity:* ${quantity}%0a` +
+        `\uD83D\uDCB3 *Payment:* ${method}%0a` +
+        `\uD83D\uDCB0 *Total:* ${formatINR(total)}%0a%0a` +
+        `\uD83D\uDCE6 *Shipping Details*%0a` +
+        `👤 Name: ${encodeURIComponent(v.name)}%0a` +
+        `📞 Phone: ${encodeURIComponent(v.phone)}%0a` +
+        `✉️ Email: ${encodeURIComponent(v.email)}%0a` +
+        `🏠 Address: ${encodeURIComponent(v.address)}, ${encodeURIComponent(v.city)} - ${encodeURIComponent(v.pincode)}`;
+      const url = `https://wa.me/${UPI_WHATSAPP_NUMBER}?text=${message}`;
+      window.open(url, '_blank');
+    });
 
-        // Attach to button
-        document.getElementById("rzp-button1").addEventListener("click", function (e) {
-            e.preventDefault();
-            handleCheckoutAndSave();
-        });
-    </script>
+    // Popup helpers
+    function showOrderPopup() { document.getElementById('orderPopup').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    function closePopup() { document.getElementById('orderPopup').style.display = 'none'; document.body.style.overflow = ''; window.location.href = '/'; }
 
-    <script>
-        function showOrderPopup() {
-            document.getElementById("orderPopup").style.display = "flex";
-            document.body.classList.add("popup-active");
-        }
+    // Init totals
+    updateTotals();
+  </script>
 
-        function closePopup() {
-            document.getElementById("orderPopup").style.display = "none";
-            document.body.classList.remove("popup-active");
-            // ✅ Redirect to homepage
-            window.location.href = "/";
-        }
-    </script>
+<script>
+    document.getElementById("whatsappOrderBtn").addEventListener("click", function () {
+      // Get form values
+      let name = document.getElementById("customerName").value.trim();
+      let phone = document.getElementById("customerPhone").value.trim();
+      let address = document.getElementById("customerAddress").value.trim();
+      let pincode = document.getElementById("customerPincode").value.trim();
+      let paymentMethod = document.querySelector('input[name="payment"]:checked')?.value || "Not Selected";
+  
+      // Validate (optional - you can remove this if you want to allow empty fields)
+      if (!name || !phone || !address || !pincode) {
+        alert("Please fill all shipping details before ordering on WhatsApp.");
+        return;
+      }
+  
+      // Business WhatsApp Number (with country code)
+      let businessNumber = "91XXXXXXXXXX"; // Replace with your number
+  
+      // Professional formatted message
+      let message = `Hello, I would like to place an order:\n\n` +
+                    `Name: ${name}\n` +
+                    `Phone: ${phone}\n` +
+                    `Address: ${address}\n` +
+                    `Pincode: ${pincode}\n` +
+                    `Payment Method: ${paymentMethod}\n\n` +
+                    `Please confirm availability.`;
+  
+      // Encode message & open WhatsApp
+      let whatsappURL = `https://wa.me/${businessNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, "_blank");
+    });
+  </script>
+  
 
+  <!-- Bootstrap bundle (only if you use Bootstrap components like navbar toggler) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
