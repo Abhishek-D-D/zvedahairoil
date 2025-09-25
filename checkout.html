@@ -4,72 +4,444 @@
 <head>
   <meta charset="utf-8" />
   <title>Secure Checkout | Complete Your Zveda Hair Oil Order</title>
-  <meta name="description" content="Finalize your Zveda Hair Oil purchase securely. Review your order for the 200ml Ayurvedic hair growth oil and complete your transaction with Online or Cash on Delivery.">
-  <meta name="keywords" content="Zveda Hair Oil checkout, secure payment, buy hair oil online, Ayurvedic oil purchase, Zveda order completion, hair growth oil payment, cash on delivery">
+  <meta name="description"
+    content="Finalize your Zveda Hair Oil purchase securely. Review your order for the 200ml Ayurvedic hair growth oil and complete your transaction with Online or Cash on Delivery.">
+  <meta name="keywords"
+    content="Zveda Hair Oil checkout, secure payment, buy hair oil online, Ayurvedic oil purchase, Zveda order completion, hair growth oil payment, cash on delivery">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
   <!-- Favicon -->
   <link href="img/favicon-bc.jpeg" rel="icon" />
 
-  <!-- Google Web Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Icon Font Stylesheet -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Libraries Stylesheet (optional: owl/animate if used elsewhere) -->
-  <link href="lib/animate/animate.min.css" rel="stylesheet" />
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap (kept for navbar layout) -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Custom Styles -->
+  <style>
+    :root {
+      --primary: #90bc79;
+      --dark: #212529;
+      --light: #f8f9fa;
+      --accent: #ffc107;
+      --text: #333333;
+      --border: #dee2e6;
+      --bs-white: #fff;
+      --bs-body: #6c757d;
+    }
 
-  <!-- Tailwind (primary for this page UI) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui"] },
-          colors: { brand: { DEFAULT: "#0ea5e9", dark: "#0284c7" }, accent: { DEFAULT: "#16a34a" } }
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+    }
+
+    /*** Navbar ***/
+    .sticky-top {
+      top: -150px;
+      transition: .5s;
+    }
+
+    .navbar {
+      padding: 11px 0 !important;
+      height: 85px;
+      background: var(--primary) !important;
+    }
+
+    .navbar .navbar-nav .nav-link {
+      margin-right: 45px;
+      padding: 0;
+      color: var(--bs-dark);
+      font-weight: 500;
+      transition: .5s;
+      outline: none;
+    }
+
+    .navbar .navbar-nav .nav-link:hover,
+    .navbar .navbar-nav .nav-link.active {
+      color: var(--bs-white);
+    }
+
+    .navbar .dropdown-toggle::after {
+      border: none;
+      content: "\f107";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+
+    @media (max-width: 991.98px) {
+      .navbar .navbar-nav {
+        padding: 0 15px;
+        background: var(--bs-primary);
+      }
+
+      .navbar .navbar-nav .nav-link {
+        margin-right: 0;
+        padding: 10px 0;
       }
     }
-  </script>
 
-  <!-- Razorpay Checkout -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    /* Header Styles */
+    .checkout-header {
+      background: linear-gradient(135deg, var(--primary) 0%, #7aa865 100%);
+      color: white;
+      padding: 120px 0 60px;
+      text-align: center;
+      position: relative;
+      margin-top: -85px;
+    }
 
-  <!-- Page micro styles (for the success popup + trust ribbon) -->
-  <style>
-    html, body { scroll-behavior: smooth; }
-    .trust-ribbon { background: linear-gradient(90deg, #0ea5e9, #16a34a); }
-    .popup-overlay { display:none; position: fixed; inset: 0; background: rgba(0,0,0,.55); align-items: center; justify-content: center; z-index: 60; }
-    .popup-card { width: 92vw; max-width: 480px; background: #fff; border-radius: 1rem; padding: 2rem; text-align: center; box-shadow: 0 25px 60px rgba(0,0,0,.15); }
+    .checkout-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .checkout-header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Trust Ribbon */
+    .trust-ribbon {
+      background: linear-gradient(90deg, var(--primary), #7aa865);
+      color: white;
+      padding: 10px 0;
+      font-size: 0.9rem;
+    }
+
+    .trust-ribbon i {
+      margin-right: 5px;
+    }
+
+    /* Main Content */
+    .checkout-main {
+      padding: 60px 0;
+    }
+
+    .checkout-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(144, 188, 121, 0.2);
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+
+    .checkout-card-header {
+      background: rgba(144, 188, 121, 0.1);
+      padding: 20px 25px;
+      border-bottom: 1px solid rgba(144, 188, 121, 0.2);
+    }
+
+    .checkout-card-header h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .checkout-card-body {
+      padding: 25px;
+    }
+
+    /* Form Styles */
+    .form-label {
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px 15px;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.2rem rgba(144, 188, 121, 0.25);
+    }
+
+    /* Product Summary */
+    .product-image {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 10px;
+      background: white;
+    }
+
+    .price-summary {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .price-total {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--primary);
+      border-bottom: none;
+      padding-top: 10px;
+    }
+
+    /* Quantity Selector */
+    .quantity-selector {
+      display: inline-flex;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .quantity-btn {
+      background: #f8f9fa;
+      border: none;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .quantity-btn:hover {
+      background: #e9ecef;
+    }
+
+    .quantity-input {
+      width: 60px;
+      border: none;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Payment Methods */
+    .payment-option {
+      border: 2px solid #e9ecef;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .payment-option:hover {
+      border-color: var(--primary);
+    }
+
+    .payment-option.selected {
+      border-color: var(--primary);
+      background: rgba(144, 188, 121, 0.05);
+    }
+
+    .payment-option input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: var(--primary);
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #7aa865;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-whatsapp:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Assurance Badges */
+    .assurance-badges {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .assurance-badge {
+      text-align: center;
+      padding: 15px 10px;
+      border: 1px solid #e9ecef;
+      border-radius: 10px;
+      font-size: 0.85rem;
+    }
+
+    .assurance-badge i {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    /* Sidebar */
+    .sidebar-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(144, 188, 121, 0.2);
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    /* Success Popup */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(144, 188, 121, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .popup-icon i {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    /* Footer */
+    .checkout-footer {
+      background: white;
+      border-top: 1px solid #eee;
+      padding: 30px 0;
+      text-align: center;
+      color: #666;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .checkout-header {
+        padding: 100px 0 40px;
+      }
+
+      .checkout-header h1 {
+        font-size: 2rem;
+      }
+
+      .checkout-card-body {
+        padding: 20px;
+      }
+
+      .assurance-badges {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans">
-  <!-- Top trust ribbon -->
-  <div class="trust-ribbon text-white text-center text-sm py-2">
-    <div class="max-w-6xl mx-auto px-3 flex flex-col sm:flex-row items-center justify-center gap-3">
-      <span class="flex items-center gap-2"><i class="bi bi-shield-check"></i> 256‑bit SSL Secure Checkout</span>
-      <span class="hidden sm:inline">•</span>
-      <span class="flex items-center gap-2"><i class="bi bi-truck"></i> Fast Shipping (3–7 working days)</span>
-      <span class="hidden sm:inline">•</span>
-      <span class="flex items-center gap-2"><i class="bi bi-cash-coin"></i> Cash on Delivery Available</span>
+<body>
+  <!-- Trust Ribbon -->
+  <div class="trust-ribbon">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center text-md-start">
+          <i class="fas fa-shield-alt"></i> 256-bit SSL Secure Checkout
+        </div>
+        <div class="col-md-4 text-center">
+          <i class="fas fa-truck"></i> Fast Shipping (3-7 working days)
+        </div>
+        <div class="col-md-4 text-center text-md-end">
+          <i class="fas fa-money-bill-wave"></i> Cash on Delivery Available
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Navbar Start (Bootstrap layout retained for site consistency) -->
-  <div class="container-fluid sticky-top bg-white/80 backdrop-blur border-b border-gray-100">
+
+
+  <!-- Navbar Start -->
+  <!-- <div class="container-fluid sticky-top">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light p-0">
-        <a href="index.html" class="navbar-brand py-3">
-          <img src="img/Zvedalogo.png" alt="Zveda Logo" class="img-fluid" style="max-height: 44px;" />
+        <a href="index.html" class="navbar-brand">
+          <img src="img/Zvedalogo.png" alt="Zveda Logo" class="img-fluid" style="max-height: 40px;">
         </a>
         <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
@@ -82,195 +454,241 @@
             <a href="how-to-use.html" class="nav-item nav-link">How To Use</a>
             <a href="contact.html" class="nav-item nav-link">Contact</a>
           </div>
-          <a href="product.html" class="btn btn-dark py-2 px-4 d-none d-lg-inline-block rounded-pill">Shop Now</a>
+          <a href="product.html" class="btn btn-dark py-2 px-4 d-none d-lg-inline-block">Shop Now</a>
         </div>
       </nav>
     </div>
-  </div>
+  </div> -->
   <!-- Navbar End -->
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-br from-sky-500 to-sky-600 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-10 md:py-14 text-center">
-      <h1 class="text-3xl md:text-5xl font-semibold tracking-tight">Checkout</h1>
-      <p class="mt-3 text-white/90">Securely complete your Zveda Hair Oil order — choose Online Payment or Cash on Delivery.</p>
-      <nav class="mt-4 text-white/80 text-sm">
-        <ol class="flex items-center justify-center gap-2 flex-wrap">
-          <li><a class="hover:underline" href="index.html">Home</a></li>
-          <li>›</li>
-          <li><a class="hover:underline" href="product.html">Products</a></li>
-          <li>›</li>
-          <li class="text-white">Checkout</li>
-        </ol>
-      </nav>
+  <!-- Header -->
+  <div class="checkout-header">
+    <div class="container">
+      <h1>Secure Checkout</h1>
+      <p>Complete your Zveda Hair Oil order with confidence</p>
     </div>
-  </section>
+  </div>
 
-  <!-- Main -->
-  <main class="py-10 md:py-14 px-4">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <!-- Left: Forms -->
-      <div class="lg:col-span-2 space-y-6">
-        <!-- Product Summary -->
-        <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-          <h2 class="text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2"><span>🛍️</span> Order Summary</h2>
-          <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
-            <img src="img/zvedaoil-1.png" alt="Zveda Hair Oil 200ml" class="w-32 h-32 md:w-36 md:h-36 object-contain rounded-xl border border-gray-200 bg-white" />
-            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-              <div class="space-y-1">
-                <h3 class="text-lg font-semibold text-gray-900">Zveda Hair Oil</h3>
-                <p class="text-sm text-gray-600">200ml bottle</p>
-                <p class="text-base md:text-lg font-semibold"><span class="line-through text-gray-400 mr-2">₹963</span><span class="text-green-600">₹499</span> <span class="text-xs text-gray-500">incl. taxes</span></p>
-                <div class="mt-3">
-                  <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
-                  <div class="inline-flex items-center rounded-xl border border-gray-300 overflow-hidden">
-                    <button type="button" class="px-3 py-2 hover:bg-gray-100" onclick="decreaseQty()" aria-label="Decrease quantity">−</button>
-                    <input id="quantity" type="number" min="1" value="1" class="w-16 text-center outline-none py-2" />
-                    <button type="button" class="px-3 py-2 hover:bg-gray-100" onclick="increaseQty()" aria-label="Increase quantity">+</button>
+  <!-- Main Content -->
+  <div class="checkout-main">
+    <div class="container">
+      <div class="row">
+        <!-- Left Column - Forms -->
+        <div class="col-lg-8">
+          <!-- Order Summary -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <h2><i class="fas fa-shopping-bag me-2"></i> Order Summary</h2>
+            </div>
+            <div class="checkout-card-body">
+              <div class="row align-items-center">
+                <div class="col-md-3 text-center mb-3 mb-md-0">
+                  <img src="img/zvedaoil-1.png" alt="Zveda Hair Oil" class="product-image">
+                </div>
+                <div class="col-md-9">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h4>Zveda Hair Oil</h4>
+                      <p class="text-muted">200ml bottle</p>
+                      <p class="h5 text-primary">₹499 <small class="text-muted"><del>₹963</del></small></p>
+
+                      <div class="mt-3">
+                        <label class="form-label">Quantity</label>
+                        <div class="quantity-selector">
+                          <button class="quantity-btn" onclick="decreaseQty()">-</button>
+                          <input type="number" id="quantity" class="quantity-input" value="1" min="1">
+                          <button class="quantity-btn" onclick="increaseQty()">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="price-summary">
+                        <div class="price-row">
+                          <span>Item Total</span>
+                          <span id="priceItems">₹499</span>
+                        </div>
+                        <div class="price-row">
+                          <span>Shipping</span>
+                          <span id="priceShipping">Free</span>
+                        </div>
+                        <div class="price-row">
+                          <span>Payment Method</span>
+                          <span id="priceMethod">Online / COD</span>
+                        </div>
+                        <div class="price-row price-total">
+                          <span>Grand Total</span>
+                          <span id="priceGrand">₹499</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-3 bg-gray-50 rounded-xl p-4 h-max">
-                <div class="text-sm text-gray-600">Item Total</div><div class="text-right font-medium" id="priceItems">₹499</div>
-                <div class="text-sm text-gray-600">Shipping</div><div class="text-right font-medium" id="priceShipping">Free</div>
-                <div class="text-sm text-gray-600">Payment Method</div><div class="text-right font-medium" id="priceMethod">Online / COD</div>
-                <div class="col-span-2 border-t pt-2 mt-1"></div>
-                <div class="text-base font-semibold">Grand Total</div><div class="text-right text-lg font-bold text-gray-900" id="priceGrand">₹499</div>
+            </div>
+          </div>
+
+          <!-- Shipping Address -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <h2><i class="fas fa-truck me-2"></i> Shipping Address</h2>
+            </div>
+            <div class="checkout-card-body">
+              <form id="checkoutForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" maxlength="10" required>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" id="address" rows="3" required></textarea>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="pincode" class="form-label">Postal Code</label>
+                    <input type="text" class="form-control" id="pincode" maxlength="6" required>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <h2><i class="fas fa-credit-card me-2"></i> Payment Method</h2>
+            </div>
+            <div class="checkout-card-body">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <div class="payment-option" onclick="selectPayment('online')">
+                    <input type="radio" name="payment" id="payOnline" checked>
+                    <label for="payOnline" class="mb-0">
+                      <strong>Pay Online</strong><br>
+                      <small class="text-muted">UPI / Card / Net Banking</small>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="payment-option" onclick="selectPayment('cod')">
+                    <input type="radio" name="payment" id="payCOD">
+                    <label for="payCOD" class="mb-0">
+                      <strong>Cash on Delivery</strong><br>
+                      <small class="text-muted">Pay at your doorstep</small>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-check mt-3">
+                <input class="form-check-input" type="checkbox" id="agree">
+                <label class="form-check-label" for="agree">
+                  I agree to the <a href="terms_condition.html">Terms of Service</a> and <a
+                    href="privacy_policy.html">Privacy Policy</a>
+                </label>
+              </div>
+
+              <div class="d-flex gap-3 mt-4">
+                <button id="btnPlaceOrder" class="btn btn-primary flex-grow-1">Pay Securely</button>
+                <!-- <button id="btnWhatsApp" class="btn btn-whatsapp">
+                  <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                </button> -->
+              </div>
+
+              <div class="assurance-badges">
+                <div class="assurance-badge">
+                  <i class="fas fa-lock"></i>
+                  <div>SSL Secured</div>
+                </div>
+                <div class="assurance-badge">
+                  <i class="fas fa-check-circle"></i>
+                  <div>Genuine Product</div>
+                </div>
+                <div class="assurance-badge">
+                  <i class="fas fa-shipping-fast"></i>
+                  <div>Tracked Shipping</div>
+                </div>
+                <div class="assurance-badge">
+                  <i class="fas fa-leaf"></i>
+                  <div>No Chemicals</div>
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        <!-- Shipping Address -->
-        <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-          <h2 class="text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2"><span>🚚</span> Shipping Address</h2>
-          <form id="checkoutForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-              <input type="text" id="name" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" required />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-              <input type="tel" id="phone" inputmode="numeric" maxlength="10" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" required />
-            </div>
-            <div class="md:col-span-2">
-              <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-              <input type="email" id="email" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" required />
-            </div>
-            <div class="md:col-span-2">
-              <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
-              <textarea id="address" rows="3" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" required></textarea>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-              <input type="text" id="city" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" required />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
-              <input type="text" id="pincode" maxlength="6" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-sky-400 outline-none" pattern="\d{6}" title="Please enter a 6-digit postal code" required oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);" />
-            </div>
-          </form>
-        </section>
-
-        <!-- Payment Method -->
-        <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-          <h2 class="text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2"><span>💳</span> Payment Method</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <label class="flex items-start gap-3 p-4 border rounded-xl hover:border-sky-300 cursor-pointer">
-              <input type="radio" name="payMethod" id="payOnline" class="mt-1" checked />
-              <div>
-                <div class="font-semibold">Pay Online (UPI / Card / Net Banking)</div>
-                <p class="text-sm text-gray-600 mt-1">Secure Razorpay checkout • Instant confirmation</p>
-              </div>
-            </label>
-            <label class="flex items-start gap-3 p-4 border rounded-xl hover:border-sky-300 cursor-pointer">
-              <input type="radio" name="payMethod" id="payCOD" class="mt-1" />
-              <div>
-                <div class="font-semibold">Cash on Delivery (COD)</div>
-                <p class="text-sm text-gray-600 mt-1">Pay at your doorstep • No upfront payment</p>
-              </div>
-            </label>
+        <!-- Right Column - Sidebar -->
+        <div class="col-lg-4">
+          <!-- Help & Support -->
+          <div class="sidebar-card">
+            <h3>Need Help?</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> zvedaoils@gmail.com</li>
+              <li class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> +91 73383 48401</li>
+              <li class="mb-0"><i class="fas fa-clock me-2 text-primary"></i> Mon-Sat, 10:00 am - 6:00 pm</li>
+            </ul>
+            <p class="small text-muted mt-3">Payments are processed securely. We do not store your card or UPI details.
+            </p>
           </div>
 
-          <!-- Terms & Privacy -->
-          <div class="mt-6 flex items-start gap-3">
-            <input type="checkbox" id="agree" class="mt-1" />
-            <label for="agree" class="text-sm text-gray-600">I agree to the <a href="terms_condition.html" class="text-sky-600 hover:underline">Terms of Service</a> and <a href="privacy_policy.html" class="text-sky-600 hover:underline">Privacy Policy</a>.</label>
+          <!-- Why Buy -->
+          <div class="sidebar-card">
+            <h3>Why Buy from Zveda?</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i> Trusted Ayurvedic Solution</li>
+              <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i> 100% Pure & Natural</li>
+              <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i> Real Results</li>
+              <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i> Multi-Action Formula</li>
+              <li class="mb-0"><i class="fas fa-check-circle me-2 text-success"></i> Secure & Fast Delivery</li>
+            </ul>
           </div>
-
-          <!-- Action Buttons -->
-          <div class="mt-6 flex flex-col sm:flex-row gap-3">
-            <button id="btnPlaceOrder" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3 rounded-xl shadow-sm">Pay Securely</button> 
-            <!-- <button id="whatsappOrderBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
-                <i class="bi bi-whatsapp"></i> Order via WhatsApp
-              </button> -->
-          </div>
-
-          <!-- Assurance badges -->
-          <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs text-gray-600">
-            <div class="border rounded-xl p-3"><i class="bi bi-lock text-base"></i><div class="mt-1">SSL Secured</div></div>
-            <div class="border rounded-xl p-3"><i class="bi bi-patch-check text-base"></i><div class="mt-1">Genuine Product</div></div>
-            <div class="border rounded-xl p-3"><i class="bi bi-truck text-base"></i><div class="mt-1">Tracked Shipping</div></div>
-            <div class="border rounded-xl p-3 text-center">
-                <i class="bi bi-droplet text-success text-base"></i>
-                <div class="mt-1">No Chemicals</div>
-              </div>
-              
-          </div>
-        </section>
+        </div>
       </div>
-
-      <!-- Right: Help & Support -->
-      <aside class="space-y-6">
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-          <h3 class="font-semibold text-lg mb-3">Need Help?</h3>
-          <ul class="space-y-2 text-sm text-gray-700">
-            <li class="flex items-center gap-2"><i class="bi bi-envelope"></i> zvedaoils@gmail.com</li>
-            <li class="flex items-center gap-2"><i class="bi bi-telephone"></i> +91 73383 48401</li>
-            <li class="flex items-center gap-2"><i class="bi bi-clock"></i> Mon–Sat, 10:00 am – 6:00 pm</li>
-          </ul>
-          <div class="mt-4 text-xs text-gray-500">Payments are processed by Razorpay. We do not store your card or UPI details.</div>
-        </div>
-
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-          <h3 class="font-semibold text-lg mb-3">Why buy from Zveda?</h3>
-          <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
-            <li>Trusted Ayurvedic Solution: Rooted in ancient 'Taila Paka Vidhi</li>
-            <li>100% Pure & Natural: No chemicals, only nature's best herbs</li>
-            <li>Real Results: Proven effective for hair fall and growth</li>
-            <li>Multi-Action Formula: Reduces hair fall, promotes growth, adds shine</li>
-            <li>Secure & Fast Delivery: Shipped from Bengaluru, right to you</li>
-          </ul>
-        </div>
-      </aside>
     </div>
-  </main>
+  </div>
 
-  <!-- Footer mini -->
-  <footer class="border-t bg-white">
-    <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-600 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <div>© <span id="year"></span> Zveda. All rights reserved.</div>
-      <div class="flex items-center gap-4">
-        <a href="privacy_policy.html" class="hover:text-gray-900">Privacy Policy</a>
-        <a href="terms_condition.html" class="hover:text-gray-900">Terms & Conditions</a>
-        <!-- <a href="#" class="hover:text-gray-900">Refunds</a> -->
+  <!-- Footer -->
+  <footer class="checkout-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          © <span id="year"></span> Zveda. All rights reserved.
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a href="privacy_policy.html" class="text-muted me-3">Privacy Policy</a>
+          <a href="terms_condition.html" class="text-muted">Terms & Conditions</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Success / Confirmation Popup -->
+  <!-- Success Popup -->
   <div id="orderPopup" class="popup-overlay">
     <div class="popup-card">
-      <div class="mx-auto w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-        <i class="bi bi-check2 text-3xl text-green-600"></i>
+      <div class="popup-icon">
+        <i class="fas fa-check"></i>
       </div>
-      <h2 class="text-xl font-semibold mt-4">Order Placed Successfully!</h2>
-      <p class="text-gray-600 mt-2">Your order has been placed and will be delivered within 3–7 working days.</p>
-      <button onclick="closePopup()" class="mt-6 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2.5 rounded-lg">OK</button>
+      <h3>Order Placed Successfully!</h3>
+      <p class="text-muted">Your order has been placed and will be delivered within 3-7 working days.</p>
+      <button onclick="closePopup()" class="btn btn-primary mt-3">OK</button>
     </div>
   </div>
 
   <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
   <script>
     // ====== CONFIG (edit these) ======
     const UPI_WHATSAPP_NUMBER = "917353553693"; // in international format without +
@@ -302,7 +720,7 @@
     const payCODRadio = el('payCOD');
 
     function formatINR(n) { return `₹${Number(n).toLocaleString('en-IN')}`; }
-    function nowId(prefix) { const t = new Date(); return `${prefix}-${t.getFullYear()}${(t.getMonth()+1).toString().padStart(2,'0')}${t.getDate().toString().padStart(2,'0')}-${t.getHours().toString().padStart(2,'0')}${t.getMinutes().toString().padStart(2,'0')}${t.getSeconds().toString().padStart(2,'0')}`; }
+    function nowId(prefix) { const t = new Date(); return `${prefix}-${t.getFullYear()}${(t.getMonth() + 1).toString().padStart(2, '0')}${t.getDate().toString().padStart(2, '0')}-${t.getHours().toString().padStart(2, '0')}${t.getMinutes().toString().padStart(2, '0')}${t.getSeconds().toString().padStart(2, '0')}`; }
 
     function updateTotals() {
       let q = parseInt(qtyInput.value) || 1; if (q < 1) q = 1; qtyInput.value = q;
@@ -438,7 +856,7 @@
     updateTotals();
   </script>
 
-<script>
+  <script>
     document.getElementById("whatsappOrderBtn").addEventListener("click", function () {
       // Get form values
       let name = document.getElementById("customerName").value.trim();
@@ -446,34 +864,30 @@
       let address = document.getElementById("customerAddress").value.trim();
       let pincode = document.getElementById("customerPincode").value.trim();
       let paymentMethod = document.querySelector('input[name="payment"]:checked')?.value || "Not Selected";
-  
+
       // Validate (optional - you can remove this if you want to allow empty fields)
       if (!name || !phone || !address || !pincode) {
         alert("Please fill all shipping details before ordering on WhatsApp.");
         return;
       }
-  
+
       // Business WhatsApp Number (with country code)
       let businessNumber = "91XXXXXXXXXX"; // Replace with your number
-  
+
       // Professional formatted message
       let message = `Hello, I would like to place an order:\n\n` +
-                    `Name: ${name}\n` +
-                    `Phone: ${phone}\n` +
-                    `Address: ${address}\n` +
-                    `Pincode: ${pincode}\n` +
-                    `Payment Method: ${paymentMethod}\n\n` +
-                    `Please confirm availability.`;
-  
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Address: ${address}\n` +
+        `Pincode: ${pincode}\n` +
+        `Payment Method: ${paymentMethod}\n\n` +
+        `Please confirm availability.`;
+
       // Encode message & open WhatsApp
       let whatsappURL = `https://wa.me/${businessNumber}?text=${encodeURIComponent(message)}`;
       window.open(whatsappURL, "_blank");
     });
   </script>
-  
-
-  <!-- Bootstrap bundle (only if you use Bootstrap components like navbar toggler) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
