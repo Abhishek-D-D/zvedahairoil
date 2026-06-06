@@ -190,7 +190,7 @@ export default function Hero() {
       <div className="lg:hidden flex flex-col w-full min-h-screen">
         {/* Image panel */}
         <motion.div
-          className="w-full h-[55vh] min-h-[380px] bg-cover bg-center relative"
+          className="w-full h-[55vh] min-h-[380px] bg-cover bg-[position:78%_center] relative"
           style={{ backgroundImage: "url('/img/hero-image.png')" }}
           initial={{ scale: 1.05 }}
           animate={{ scale: 1 }}
