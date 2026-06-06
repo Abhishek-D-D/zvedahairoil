@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+:root {
+  --background: #0B140D;
+  --foreground: #F4EFE6;
+  --muted-text: #B8B8B8;
+  --primary-bg: #0B140D;
+  --herbal-deep: #102415;
+  --gold-luxury: #C8A96B;
+  --cream-white: #F4EFE6;
+  --botanical-green: #6F8F63;
+}
+
+@theme {
+  --color-primary-bg: var(--primary-bg);
+  --color-herbal-deep: var(--herbal-deep);
+  --color-gold-luxury: var(--gold-luxury);
+  --color-cream-white: var(--cream-white);
+  --color-botanical-green: var(--botanical-green);
+  --color-muted-text: var(--muted-text);
+  
+  --font-heading: var(--font-display), "Clash Display", system-ui, sans-serif;
+  --font-editorial: var(--font-editorial), "Cormorant Garamond", Georgia, serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
+  
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-slow-spin: spin 20s linear infinite;
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(1.5deg);
+    }
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), "Clash Display", Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* Custom premium styling classes */
+.gold-text-glow {
+  background: linear-gradient(135deg, #F4EFE6 0%, #C8A96B 50%, #B89047 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(200, 169, 107, 0.15);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #C8A96B 0%, #B89047 100%);
+}
+
+.gold-border {
+  border-image: linear-gradient(to right, #C8A96B, rgba(200, 169, 107, 0.2), #C8A96B) 1;
+}
+
+.glass-panel {
+  background: rgba(16, 36, 21, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 169, 107, 0.12);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(200, 169, 107, 0.35);
+  box-shadow: 0 15px 40px rgba(11, 20, 13, 0.6), 0 0 30px rgba(200, 169, 107, 0.08);
+  background: rgba(16, 36, 21, 0.85);
+  transform: translateY(-2px);
+}
+
+.glow-glow {
+  filter: drop-shadow(0 0 40px rgba(200, 169, 107, 0.18));
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Smooth layout animations */
+.transition-luxury {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
